@@ -10,8 +10,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only server.ts",
     "start": "node build/server.js",
-    "build": "tsc",
-    "vercel-build": "echo hello"
+    "build": "tsc"
   },
   "author": "Sahil",
   "license": "ISC",
