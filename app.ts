@@ -51,7 +51,7 @@ app.use(cookieParser());
 //now, go to the ".env" file in the and add the following line: "ORIGIN = ['http://localhost:3000/']" and then come back here
 app.use(cors({
     //origin: process.env.ORIGIN (comment in (part-2 video), watch- 2:06:40 to 2:07:30)
-    origin: ['http://localhost:3000'],
+    origin: ['https://vercel-e-learning-client.vercel.app'],
     credentials: true,
 }));
 
