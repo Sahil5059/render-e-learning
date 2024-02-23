@@ -14,13 +14,15 @@ exports.accessTokenOptions = {
     expires: new Date(Date.now() + accessTokenExpire * 60 * 60 * 1000),
     maxAge: accessTokenExpire * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: 'none',
+    secure: true, //using this only in deploment (i think so, verify it later)
 };
 exports.refreshTokenOptions = {
     expires: new Date(Date.now() + refreshTokenExpire * 24 * 60 * 60 * 1000),
     maxAge: refreshTokenExpire * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: 'none',
+    secure: true, //using this only in deploment (i think so, verify it later)
 };
 //OVER: 23-a
 const sendToken = (user, statusCode, res) => {
@@ -30,10 +32,6 @@ const sendToken = (user, statusCode, res) => {
     //uploading user session to redis
     redis_1.redis.set(user._id, JSON.stringify(user));
     //OVER: 23-b("m": ../controllers/user.controller.ts)
-    //we will add "secure: true" in the const "accessTokenOptions" only in production. So, writing the necessary code for this below.
-    if (process.env.NODE_ENV === 'production') {
-        exports.accessTokenOptions.secure = true;
-    }
     //now, the response part
     res.cookie("access_token", accessToken, exports.accessTokenOptions);
     res.cookie("refresh_token", refreshToken, exports.refreshTokenOptions);

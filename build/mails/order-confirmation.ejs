@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            background-color: #0070f3;
+            color: #ffffff;
+        }
+        h4 {
+            margin-top: 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .subtotal, .total {
+            font-weight: bold;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            margin: 10px 0;
+            color: #666;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Elearning order is confirmed!</h1>
+        <p>And we're just as excited as you are.</p>
+        
+        <h4>Here's what you ordered:</h4>
+
+        <table>
+            <tr>
+                <td>Order #1: <%= order._id %></td>
+                <td>Order Date: <%= order.date %></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>Item</td>
+                <td>Qty</td>
+                <td>Cost</td>
+            </tr>
+            <tr>
+                <td><%= order.name %></td>
+                <td>1</td>
+                <td><%= order.price %></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td class="subtotal">Subtotal:</td>
+                <td class="subtotal">$<%= order.price %></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td class="total">Total:</td>
+                <td class="total">$<%= order.price %></td>
+            </tr>
+        </table>
+
+        <p>If you have any questions, please contact our support team at <a href="mailto:dedicatedgamer59@gmail.com">dedicatedgamer59@gmail.com</a></p>
+    </div>
+    <footer>
+        &copy; 2024 Elearning. All rights reserved.
+    </footer>
+</body>
+</html>
