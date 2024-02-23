@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "destination": "/build"
+            "dest": "/build"
         }
     ]
 }
